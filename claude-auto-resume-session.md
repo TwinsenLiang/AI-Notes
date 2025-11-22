@@ -39,11 +39,28 @@ nano ~/.bashrc
 
 在文件**最后面**添加这几行：
 
+#### 智能版本（推荐）⭐
+
+```bash
+# Claude Code 智能启动（有历史则继续，否则新建）
+alias claude='claude --continue 2>/dev/null || \claude'
+
+# 可选：更短的别名，输入 AI 就能启动
+alias AI='claude --continue 2>/dev/null || \claude'
+```
+
+**智能在哪？**
+- 有对话历史 → 自动继续上次对话
+- 无对话历史 → 自动启动新会话
+- 再也不用担心"No conversation found"错误！
+
+#### 简单版本（基础）
+
 ```bash
 # Claude Code 自动恢复上次对话
 alias claude="claude --continue"
 
-# 可选：更短的别名，输入 AI 就能启动
+# 可选：更短的别名
 alias AI="claude --continue"
 ```
 
@@ -75,6 +92,21 @@ AI
 🎉 看！Claude 还记得你们上次聊到哪儿～
 
 ### 偶尔想开新会话怎么办？
+
+#### 智能版本用户
+
+切换到没有历史的新目录，会自动开新会话：
+```bash
+cd ~/new-project
+claude  # 自动开新会话
+```
+
+如果在有历史的目录想强制开新会话：
+```bash
+\claude  # 反斜杠绕过别名
+```
+
+#### 简单版本用户
 
 ```bash
 # 绕过别名，启动全新会话
