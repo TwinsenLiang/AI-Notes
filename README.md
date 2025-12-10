@@ -41,6 +41,16 @@
 
   学会这几招，token 消耗减半，钱包不再哭泣
 
+### 实战应用
+
+- [用 Claude Code 解决电脑问题](./claude-solve-computer-problems.md)
+
+  找驱动、查资料、写脚本...Claude 不只会写代码，还能当技术支持
+
+- [通用服务管理脚本使用指南](./service-script-best-practices.md)
+
+  一个脚本搞定所有项目的启动、停止、重启，Python/Node.js/Go 都能用
+
 ## 适合谁看？ 👥
 
 - 🔰 **新手**：刚接触 Claude Code，需要入门指导
@@ -61,4 +71,4 @@
 
 ---
 
-*最后更新: 2025-11-22*
+*最后更新: 2025-12-10*

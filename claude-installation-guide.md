@@ -11,7 +11,7 @@ Claude Code 是 Anthropic 公司推出的命令行 AI 编程助手。它可以�
 你可以通过以下方式获取 API Key：
 
 1. **Anthropic 官方**：访问 **https://console.anthropic.com/** 注册账号并获取 API Key
-2. **第三方服务商**：也可以在像 **https://aicodewith.com/** 这样的第三方服务商获取
+2. **第三方服务商**：也可以在像 **[https://aicodewith.com/](https://aicodewith.com/login?tab=register&invitation=MMEJVFQD)* 这样的第三方服务商获取
 
 💡 **小提示**：国内用户访问官方网站可能需要配置代理。第三方服务商通常对国内网络更友好。
 
