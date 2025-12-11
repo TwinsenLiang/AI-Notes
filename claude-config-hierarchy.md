@@ -11,11 +11,11 @@ CLAUDE.md 是 Claude Code 的"记忆文件"。你可以把它理解成给 Claude
 Claude Code 支持多层级配置，从全局到局部，各司其职：
 
 ```
-~/.claude/CLAUDE.md          # 个人配置（全局生效）
+~/.claude/CLAUDE.md             # 个人配置（全局生效）
     ↓
-~/Sites/CLAUDE.md            # 工作区配置（Sites 目录下生效）
+~/Workspace/CLAUDE.md           # 工作区配置（Workspace 目录下生效）
     ↓
-~/Sites/MyProject/CLAUDE.md  # 项目配置（仅该项目生效）
+~/Workspace/MyProject/CLAUDE.md # 项目配置（仅该项目生效）
 ```
 
 ### 配置优先级
@@ -46,7 +46,7 @@ Claude Code 支持多层级配置，从全局到局部，各司其职：
 - 不添加 "Generated with Claude Code" 标记
 ```
 
-### 2. 工作区配置 `~/Sites/CLAUDE.md`
+### 2. 工作区配置 `~/Workspace/CLAUDE.md`
 
 适合存放工作区级别的信息：
 
@@ -66,7 +66,7 @@ Claude Code 支持多层级配置，从全局到局部，各司其职：
 - ProjectC 包含敏感信息，注意保密
 ```
 
-### 3. 项目配置 `~/Sites/MyProject/CLAUDE.md`
+### 3. 项目配置 `~/Workspace/MyProject/CLAUDE.md`
 
 适合存放项目特有的规范：
 
@@ -102,7 +102,7 @@ nano ~/.claude/CLAUDE.md
 
 ```bash
 # 进入项目目录
-cd ~/Sites/MyProject
+cd ~/Workspace/MyProject
 
 # 创建配置文件
 nano CLAUDE.md

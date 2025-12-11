@@ -72,7 +72,9 @@
 
 ## 工具脚本 🛠️
 
-本仓库还包含实用的自动化脚本：
+本仓库包含实用的自动化脚本，同时整合了 **Tools 工具集**：
+
+### 主要工具
 
 - **setup-mirrors.sh** - 远程 Linux 机器一键配置脚本
   - 自动安装 Claude Code、Qoder CLI、CodeBuddy
@@ -84,6 +86,15 @@
 使用方法：`./setup-mirrors.sh user@host`
 
 详见：[远程 Linux 机器一键配置 AI CLI 工具](./setup-ai-cli-tools.md)
+
+### 更多工具
+
+查看 **[Tools 工具集](https://github.com/TwinsenLiang/Tools)** 获取更多实用工具：
+- 设备挂载/卸载工具
+- 系统配置脚本
+- 开发辅助工具
+
+> 💡 **工具与教程联动**: Tools 项目提供实用工具，AI-Notes 提供使用教程，两者互为补充
 
 ## 适合谁看？ 👥
 
@@ -103,6 +114,12 @@
 **如果这个项目帮到了你，请给个 Star 支持一下！** 🌟
 
 你的 Star 是对我最大的鼓励，也能让更多人看到这个项目！
+
+## 项目规划 📋
+
+查看 **[ROADMAP.md](./ROADMAP.md)** 了解项目的发展方向和未来计划。
+
+查看 **[UPDATE.md](./UPDATE.md)** 了解最新的更新历史。
 
 ## 贡献 & 反馈 💬
 

@@ -107,11 +107,11 @@ Go 项目 → ./service.sh start
 
 ### 1. 获取脚本
 
-脚本位置：`~/Sites/service.sh`
+脚本位置：`~/Workspace/service.sh`
 
 ```bash
 # 复制到你的项目目录
-cp ~/Sites/service.sh /path/to/your/project/
+cp ~/Workspace/service.sh /path/to/your/project/
 chmod +x service.sh
 ```
 
@@ -770,7 +770,7 @@ START_CMD="python migrate.py && python app.py"
 ```
 
 Claude 会：
-1. 读取 `~/Sites/service.sh` 范本
+1. 读取 `~/Workspace/service.sh` 范本
 2. 根据你的项目信息修改配置
 3. 生成配置好的脚本到你的项目目录
 
