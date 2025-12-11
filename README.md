@@ -43,6 +43,10 @@
 
 ### 实战应用
 
+- [远程 Linux 机器一键配置 AI CLI 工具](./setup-ai-cli-tools.md)
+
+  一条命令安装 Claude Code、Qoder CLI、CodeBuddy，还能自动配置智能别名
+
 - [用 Claude Code 解决电脑问题](./claude-solve-computer-problems.md)
 
   找驱动、查资料、写脚本...Claude 不只会写代码，还能当技术支持
@@ -51,11 +55,27 @@
 
   一个脚本搞定所有项目的启动、停止、重启，Python/Node.js/Go 都能用
 
+## 工具脚本 🛠️
+
+本仓库还包含实用的自动化脚本：
+
+- **setup-mirrors.sh** - 远程 Linux 机器一键配置脚本
+  - 自动安装 Claude Code、Qoder CLI、CodeBuddy
+  - 配置镜像源（APT、NPM、PIP）
+  - 安装 zsh 和 oh-my-zsh
+  - 配置智能别名
+  - 支持树莓派、Ubuntu、Debian 等系统
+
+使用方法：`./setup-mirrors.sh user@host`
+
+详见：[远程 Linux 机器一键配置 AI CLI 工具](./setup-ai-cli-tools.md)
+
 ## 适合谁看？ 👥
 
 - 🔰 **新手**：刚接触 Claude Code，需要入门指导
 - 💪 **进阶用户**：想要优化工作流程，提高效率
 - 👨‍🏫 **分享者**：想把 Claude Code 推荐给朋友，这就是现成的教程
+- 🍓 **树莓派玩家**：需要在多台设备上快速部署 AI 工具
 
 ## 贡献 & 反馈 💬
 
@@ -71,4 +91,4 @@
 
 ---
 
-*最后更新: 2025-12-10*
+*最后更新: 2025-12-12*
