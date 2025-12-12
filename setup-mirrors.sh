@@ -12,11 +12,15 @@ NC='\033[0m' # No Color
 
 # 显示使用方法
 usage() {
-    echo "用法: $0 <user@host> [-p port]"
+    echo "用法: $0 <host> [user] [-p port]"
+    echo "     $0 <user@host> [-p port]"
     echo ""
     echo "示例:"
-    echo "  $0 pi@192.168.1.100"
-    echo "  $0 pi@192.168.1.100 -p 2222"
+    echo "  $0 192.168.1.100                  # 会提示输入用户名"
+    echo "  $0 192.168.1.100 pi               # 指定用户名为 pi"
+    echo "  $0 pi@192.168.1.100               # 使用 user@host 格式"
+    echo "  $0 192.168.1.100 pi -p 2222       # 指定端口"
+    echo "  $0 pi@192.168.1.100 -p 2222       # user@host 格式 + 端口"
     exit 1
 }
 
@@ -25,14 +29,45 @@ if [ $# -lt 1 ]; then
     usage
 fi
 
-TARGET=$1
+# 解析参数
+HOST_ARG=$1
+SSH_USER=""
+SSH_HOST=""
 PORT=""
-SSH_PORT_ARG=""
 
-# 解析端口参数
-if [ "$2" = "-p" ] && [ -n "$3" ]; then
-    PORT="-p $3"
-    SSH_PORT_ARG="-p $3"
+# 判断是否为 user@host 格式
+if [[ "$HOST_ARG" == *"@"* ]]; then
+    # user@host 格式
+    SSH_USER=$(echo $HOST_ARG | cut -d'@' -f1)
+    SSH_HOST=$(echo $HOST_ARG | cut -d'@' -f2)
+    TARGET="$HOST_ARG"
+
+    # 检查端口参数
+    if [ "$2" = "-p" ] && [ -n "$3" ]; then
+        PORT="-p $3"
+    fi
+else
+    # 只有 host
+    SSH_HOST=$HOST_ARG
+
+    # 检查第二个参数是用户名还是 -p
+    if [ -n "$2" ] && [ "$2" != "-p" ]; then
+        # 第二个参数是用户名
+        SSH_USER=$2
+        # 检查端口参数
+        if [ "$3" = "-p" ] && [ -n "$4" ]; then
+            PORT="-p $4"
+        fi
+    else
+        # 交互式输入用户名
+        read -p "请输入 SSH 用户名: " SSH_USER
+        # 检查端口参数
+        if [ "$2" = "-p" ] && [ -n "$3" ]; then
+            PORT="-p $3"
+        fi
+    fi
+
+    TARGET="$SSH_USER@$SSH_HOST"
 fi
 
 echo -e "${CYAN}========================================"
@@ -66,33 +101,41 @@ echo ""
 # 配置菜单
 # ============================================
 
-echo -e "${CYAN}请选择要执行的配置步骤（多选，用空格分隔）：${NC}"
-echo ""
-echo "  1) SSH 免密登录配置 (ssh-copy-id)"
-echo "  2) 安装 zsh 和 oh-my-zsh"
-echo "  3) 配置 APT 镜像源（清华大学）"
-echo "  4) 配置 NPM 镜像源（淘宝）"
-echo "  5) 配置 PIP 镜像源（清华大学）"
-echo "  6) 安装常用工具 (vim, curl, wget, git, htop)"
-echo "  7) 配置 Git 用户信息"
-echo "  8) 设置时区为 Asia/Shanghai"
-echo "  9) 安装 AI CLI 工具 (Claude Code, Qoder CLI, CodeBuddy)"
-echo ""
-echo "  a) 全部执行"
-echo "  q) 退出"
-echo ""
-read -p "请输入选项（如: 1 3 4 或 a）: " choices
+while true; do
+    echo -e "${CYAN}请选择要执行的配置步骤（多选，用空格分隔）：${NC}"
+    echo ""
+    echo "  1) SSH 免密登录配置 (ssh-copy-id)"
+    echo "  2) 安装 zsh 和 oh-my-zsh"
+    echo "  3) 配置 APT 镜像源（清华大学）"
+    echo "  4) 配置 NPM 镜像源（淘宝）"
+    echo "  5) 配置 PIP 镜像源（清华大学）"
+    echo "  6) 安装常用工具 (vim, curl, wget, git, htop)"
+    echo "  7) 配置 Git 用户信息"
+    echo "  8) 设置时区为 Asia/Shanghai"
+    echo "  9) 安装 AI CLI 工具 (Claude Code, Qoder CLI, CodeBuddy)"
+    echo ""
+    echo "  a) 全部执行"
+    echo "  q) 退出"
+    echo ""
+    read -p "请输入选项（如: 1 3 4 或 a）: " choices
 
-# 如果选择全部执行
-if [[ "$choices" == "a" ]]; then
-    choices="1 2 3 4 5 6 7 8 9"
-fi
+    # 如果选择全部执行
+    if [[ "$choices" == "a" ]]; then
+        choices="1 2 3 4 5 6 7 8 9"
+    fi
 
-# 如果选择退出
-if [[ "$choices" == "q" ]]; then
-    echo "退出配置"
-    exit 0
-fi
+    # 如果选择退出
+    if [[ "$choices" == "q" ]]; then
+        echo "退出配置"
+        exit 0
+    fi
+
+    # 如果没有输入任何选项，继续循环
+    if [[ -z "$choices" ]]; then
+        echo -e "${YELLOW}⚠️  未选择任何选项，请重新输入${NC}"
+        echo ""
+        continue
+    fi
 
 echo ""
 echo -e "${CYAN}========================================${NC}"
@@ -723,3 +766,6 @@ echo "  • 可运行 'apt update' 测试 APT 源是否正常"
 echo "  • 可运行 'npm config get registry' 查看 NPM 源"
 echo "  • 可运行 'pip config list' 查看 PIP 源"
 echo ""
+
+# 循环结束，回到菜单
+done
