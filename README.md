@@ -15,7 +15,7 @@
 
 欢迎来到 AI 工具使用笔记！这里记录了 Claude Code 及其他 AI 工具的实用经验，帮助新手少踩坑、老手更高效～
 
-✨ **一键安装 3 个 AI CLI 工具** | 🚀 **自动化配置脚本** | 💡 **智能别名开箱即用** | 📚 **完整教程 + 最佳实践**
+💡 **实用对话技巧** | 💰 **省钱秘诀** | 🔧 **Plugin 工具指南** | 📚 **完整教程**
 
 ## 为什么要有这个笔记本？ 🤔
 
@@ -32,7 +32,8 @@
 
 1. [Claude Code 注册与安装指南](./claude-installation-guide.md) - 从零开始，安装配置一条龙
 2. [CLAUDE.md 配置层级指南](./claude-config-hierarchy.md) - 让 Claude 成为懂你的助手
-3. [自动恢复会话配置](./claude-auto-resume-session.md) - 不用每次都重新介绍自己
+3. [如何有效地与 Claude 对话](./claude-effective-conversation.md) - 学会最省时省力的沟通方式
+4. [自动恢复会话配置](./claude-auto-resume-session.md) - 不用每次都重新介绍自己
 
 ## 文章目录 📚
 
@@ -52,6 +53,11 @@
 
   配置一次，永久记忆，让 Claude 记住你们的对话历史
 
+- [如何有效地与 Claude 对话](./claude-effective-conversation.md)
+
+  别背命令，自然对话就行！学会最省时省力的沟通方式
+
+
 - [Claude Code 省钱小技巧](./claude-save-tokens-tips.md)
 
   学会这几招，token 消耗减半，钱包不再哭泣
@@ -70,44 +76,28 @@
 
   一个脚本搞定所有项目的启动、停止、重启，Python/Node.js/Go 都能用
 
-## 工具脚本 🛠️
+- [Claude Plugin 使用指南](./claude-plugins-guide.md)
 
-本仓库包含实用的自动化脚本，同时整合了 **Tools 工具集**：
+  安装管理插件，解锁更多能力。code-simplifier 等实用工具详解
 
-### 主要工具
+### 进阶阅读
 
-- **setup-mirrors.sh** - 远程 Linux 机器一键配置脚本
-  - 自动安装 Claude Code、Qoder CLI、CodeBuddy
-  - 配置镜像源（APT、NPM、PIP）
-  - 安装 zsh 和 oh-my-zsh
-  - 配置智能别名
-  - 支持树莓派、Ubuntu、Debian 等系统
+- [了解 Claude Agent 工作机制](./claude-agent-architecture.md)
 
-使用方法：`./setup-mirrors.sh user@host`
-
-详见：[远程 Linux 机器一键配置 AI CLI 工具](./setup-ai-cli-tools.md)
-
-### 更多工具
-
-查看 **[Tools 工具集](https://github.com/TwinsenLiang/Tools)** 获取更多实用工具：
-- 设备挂载/卸载工具
-- 系统配置脚本
-- 开发辅助工具
-
-> 💡 **工具与教程联动**: Tools 项目提供实用工具，AI-Notes 提供使用教程，两者互为补充
+  深入了解 Agent 架构原理，理解 Claude 为什么高效省钱
 
 ## 适合谁看？ 👥
 
 - 🔰 **新手**：刚接触 Claude Code，需要入门指导
 - 💪 **进阶用户**：想要优化工作流程，提高效率
+- 💰 **省钱爱好者**：想掌握 token 优化技巧
 - 👨‍🏫 **分享者**：想把 Claude Code 推荐给朋友，这就是现成的教程
-- 🍓 **树莓派玩家**：需要在多台设备上快速部署 AI 工具
 
 ## 为什么值得 Star？ ⭐
 
-- ✅ **省时间**：一键脚本帮你配置所有工具，不用手动折腾
-- ✅ **省钱**：掌握 token 优化技巧，API 费用至少减半
-- ✅ **少踩坑**：所有配置都是实战验证过的，直接能用
+- ✅ **学得快**：从入门到进阶，完整学习路径
+- ✅ **省大钱**：掌握对话和 token 优化技巧，费用减半
+- ✅ **少踩坑**：所有经验都是实战验证过的，直接能用
 - ✅ **持续更新**：不断补充新的实用技巧和最佳实践
 - ✅ **适合推广**：现成的教程，分享给朋友轻松上手
 
