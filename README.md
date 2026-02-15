@@ -64,6 +64,10 @@
 
 ### 实战应用
 
+- [OpenClaw 免费模型使用指南](./openclaw-free-models-guide.md)
+
+  完全免费的 AI 命令行工具，12个模型实测对比，最快4.3秒响应
+
 - [远程 Linux 机器一键配置 AI CLI 工具](./setup-ai-cli-tools.md)
 
   一条命令安装 Claude Code、Qoder CLI、CodeBuddy，还能自动配置智能别名
@@ -146,4 +150,4 @@
 
 ---
 
-*最后更新: 2025-12-12*
+*最后更新: 2026-02-15*
